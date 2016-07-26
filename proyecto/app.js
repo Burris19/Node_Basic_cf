@@ -1,19 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var User = require('./models/user').User;
 var app = express();
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/fotos');
-
-var userSchemaJSON = {
-	email:String,
-	password:String
-};
-
-var user_schema = new Schema(userSchemaJSON);
-
-var User = mongoose.model('User', user_schema);
 
 //Para usar un middleware escribimos la palabra use
 app.use('/estatico', express.static('public'));
