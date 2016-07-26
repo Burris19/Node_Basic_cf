@@ -24,7 +24,14 @@ app.get('/login', function (req, res) {
 
 app.post('/users', function (req, res) {
 
-	var user = new User({password: req.body.password, email: req.body.email});
+	var user = new User({
+		password: req.body.password,
+		email: req.body.email,
+		password_confirmation: req.body.password_confirmation
+		});
+
+	console.log(user.password_confirmation);
+
 	user.save(function () {
 		res.send('Recibimos tus datos');	
 	});

@@ -12,6 +12,14 @@ var user_schema = new Schema({
 
 });
 
+user_schema.virtual('password_confirmation').get(function () {
+	return this.p_c;
+}).set(function(value){
+	this.p_c = value;
+})
+
+
+
 
 var User = mongoose.model('User', user_schema);
 
